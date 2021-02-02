@@ -22,30 +22,33 @@
 
   <!-- Spring Boot 启动父依赖 -->
   <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.4.1.BUILD-SNAPSHOT</version>
+         <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.11.RELEASE</version>
   </parent>
-
+  <!--更新maven 阿里云仓库镜像地址-->
     <repositories>
         <repository>
-            <id>spring-snapshots</id>
-            <url>http://repo.spring.io/snapshot</url>
-            <snapshots><enabled>true</enabled></snapshots>
-        </repository>
-        <repository>
-            <id>spring-milestones</id>
-            <url>http://repo.spring.io/milestone</url>
+            <id>spring</id>
+            <url>https://maven.aliyun.com/repository/spring</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
-            <id>spring-snapshots</id>
-            <url>http://repo.spring.io/snapshot</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>spring-milestones</id>
-            <url>http://repo.spring.io/milestone</url>
+            <id>spring</id>
+            <url>https://maven.aliyun.com/repository/spring</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </pluginRepository>
     </pluginRepositories>
 
@@ -57,7 +60,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13.1</version>
         </dependency>
     </dependencies>
 
@@ -68,28 +71,28 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.2</version>
                 <configuration>
-                <append>true</append>
+                    <append>true</append>
                 </configuration>
                 <executions>
-                <execution>
-                    <id>agent-for-ut</id>
-                    <goals>
-                    <goal>prepare-agent</goal>
-                    </goals>
-                </execution>
-                <execution>
-                    <id>agent-for-it</id>
-                    <goals>
-                    <goal>prepare-agent-integration</goal>
-                    </goals>
-                </execution>
-                <execution>
-                    <id>jacoco-site</id>
-                    <phase>verify</phase>
-                    <goals>
-                    <goal>report</goal>
-                    </goals>
-                </execution>
+                    <execution>
+                        <id>agent-for-ut</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>agent-for-it</id>
+                        <goals>
+                            <goal>prepare-agent-integration</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>jacoco-site</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
                 </executions>
             </plugin>
             <plugin>
